@@ -10,46 +10,23 @@ assistant_id: 20230817-132339-nimble-curve
 # https://rasa.com/docs/rasa/nlu/components/
 language: en
 
-# Define your policies at the top level
-policies:
-- name: RulePolicy
-- name: TEDPolicy
-  max_history: 5
-  epochs: 100
-
-# Rule-Based + ML (DIETClassifier) Pipeline
-pipeline_rule_ml:
-- name: WhitespaceTokenizer
-- name: CountVectorsFeaturizer
-- name: CountVectorsFeaturizer
-  analyzer: "char_wb"
-  min_ngram: 1
-  max_ngram: 4
-- name: DIETClassifier
-  epochs: 100
-
-# ML (DIETClassifier) + Transformer Pipeline
-pipeline_ml_transformer:
-- name: WhitespaceTokenizer
-- name: CountVectorsFeaturizer
-- name: CountVectorsFeaturizer
-  analyzer: "char_wb"
-  min_ngram: 1
-  max_ngram: 4
-- name: DIETClassifier
-  epochs: 100
-- name: LanguageModelTokenizer
-  model_name: "bert"
-  model_weights: "bert-base-uncased"
-
-# Rule-Based + Transformer Pipeline
-pipeline_rule_transformer:
-- name: WhitespaceTokenizer
-- name: RulePolicy
-- name: LanguageModelTokenizer
-  model_name: "bert"
-  model_weights: "bert-base-uncased"
 pipeline:
+  - name: WhitespaceTokenizer
+  - name: RegexFeaturizer
+  - name: CRFEntityExtractor
+  - name: DIETClassifier
+    epochs: 100
+  - name: EntitySynonymMapper
+
+policies:
+  - name: MemoizationPolicy
+    max_history: 5
+  - name: TEDPolicy
+    max_history: 5
+    epochs: 100
+  - name: RulePolicy
+
+#pipeline:
 # # No configuration for the NLU pipeline was provided. The following default pipeline was used to train your model.
 # # If you'd like to customize it, uncomment and adjust the pipeline.
 # # See https://rasa.com/docs/rasa/tuning-your-model for more information.

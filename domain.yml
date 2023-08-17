@@ -16,13 +16,41 @@ intents:
   - ask_flight_prices
 
 entities:
-  - city: "London"
-  - currency_type: "USD"
-  - from_city: "New York"
-  - to_city: "Los Angeles"
-  - travel_date: "2023-08-15"
-  - country: "India"
-  - region: " Hyderabad"
+  - entity: destination
+    examples: |
+      - [Paris](destination)
+      - [New York](destination)
+      - [London](destination)
+      
+  - entity: duration
+    examples: |
+      - [3 days](duration)
+      - [a week](duration)
+      - [5 nights](duration)
+      
+  - entity: city
+    examples: |
+      - [London](city)
+      - [New York](city)
+      - [Paris](city)
+
+  - entity: currency_type
+    examples: |
+      - [USD](currency_type)
+      - [EUR](currency_type)
+      - [JPY](currency_type)
+      
+  - entity: country
+    examples: |
+      - [India](country)
+      - [USA](country)
+      - [France](country)
+
+  - entity: region
+    examples: |
+      - [Hyderabad](region)
+      - [California](region)
+      - [Tokyo](region)
 
 slots:
   trip_itinerary:
@@ -60,7 +88,7 @@ slots:
     mappings: []
   travel_date:
     type: text
-    mappings: []
+    mappings: []    
 
 
 responses:

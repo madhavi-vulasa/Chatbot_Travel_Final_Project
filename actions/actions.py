@@ -61,7 +61,7 @@ class ActionGenerateTripItinerary(Action):
         return "action_generate_trip_itinerary"
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        destination = tracker.get_slot("destination_city")
+        destination = tracker.get_slot("destination")
         duration = tracker.get_slot("duration")
 
 
