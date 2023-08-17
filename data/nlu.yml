@@ -106,12 +106,8 @@ nlu:
 
 - intent: ask_trip_itinerary
   examples: |
-    - Can you help me plan a trip?
-    - I need a travel itinerary.
-    - Generate a trip plan for me.
-    - Plan a trip to Paris for seven days.
-    - What's the itinerary for London for a two-week trip?
-    - Tell me about a trip to New York lasting five days.
+    - Can you help me plan a trip to [Paris](destination) for [five days](duration)?
+    - I need a travel itinerary for [London](destination) for [two weeks](duration).
 
 
 - intent: ask_destination_info
