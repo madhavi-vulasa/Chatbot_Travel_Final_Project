@@ -17,27 +17,27 @@ intents:
 
 entities:
   - entity: destination
-    examples: |
+    examples: 
       - [Paris](destination)
        
   - entity: duration
-    examples: |
+    examples: 
       - [3 days](duration)
      
   - entity: city
-    examples: |
+    examples: 
       - [London](city)
      
   - entity: currency_type
-    examples: |
+    examples: 
       - [USD](currency_type)
      
   - entity: country
-    examples: |
+    examples: 
       - [India](country)
       
   - entity: region
-    examples: |
+    examples: 
       - [Hyderabad](region)
     
 
