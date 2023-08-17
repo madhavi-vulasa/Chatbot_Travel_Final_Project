@@ -104,7 +104,6 @@ responses:
   utter_weather_response:
     - text: "The weather in {city} is {condition} with a temperature of {temperature}°C."
 
-
 # responses for trip itinerary
   utter_ask_trip_itinerary:
     - text: "Sure, I can help you with that. Please provide me the {destination} and the {duration} of the trip."
@@ -115,6 +114,7 @@ responses:
 # responses for info on destination
   utter_ask_destination_info:
     - text: "Sure, I can provide you with information about the destination. Please specify the name of the {region} and {country} you're interested in."
+
   utter_destination_info:
     - text: "Here is the information about {region}, {country}:\n{admin_divisions_data}"
 
@@ -134,7 +134,6 @@ responses:
 # responses for hotel information
   utter_hotel_information:
     - text: "Here is the hotel information for {destination}"
-
 
 actions:
   - action_greet
@@ -160,7 +159,6 @@ actions:
   - utter_flight_prices
   - utter_hotel_information
   - utter_weather_response
-
 
 session_config:
   session_expiration_time: 180  # Adjust this value according to your needs
