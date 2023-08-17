@@ -6,6 +6,7 @@ from rasa_sdk.executor import CollectingDispatcher
 from dotenv import load_dotenv
 
 load_dotenv()
+
 class ActionGreet(Action):
     def name(self) -> Text:
         return "action_greet"
