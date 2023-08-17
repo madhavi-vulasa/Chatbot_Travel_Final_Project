@@ -146,6 +146,7 @@ responses:
   utter_hotel_information:
     - text: "Here is the hotel information for {destination}"
 
+
 actions:
   - action_greet
   - action_cheer_up
