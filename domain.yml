@@ -170,9 +170,7 @@ actions:
   - utter_flight_prices
   - utter_hotel_information
   - utter_weather_response
- 
 
-  
 
 session_config:
   session_expiration_time: 180  # Adjust this value according to your needs
