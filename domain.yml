@@ -61,7 +61,6 @@ entities:
       - Vancouver
       - Kolkata
     
-
 slots:
   trip_itinerary:
     type: text
