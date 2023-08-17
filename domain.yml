@@ -18,27 +18,48 @@ intents:
 entities:
   - entity: destination
     examples: 
-      - [Paris](destination)
-       
+      - Paris
+      - London
+      - New York
+      - Delhi
+
   - entity: duration
     examples: 
-      - [3 days](duration)
-     
+      - 3 days
+      - 2 weeks
+      - 10 days
+      - 1 week
+
   - entity: city
     examples: 
-      - [London](city)
-     
+      - London
+      - Hyderabad
+      - Mumbai
+      - Toronto
+      - California
+
   - entity: currency_type
     examples: 
-      - [USD](currency_type)
+      - USD
+      - INR
+      - CAD
+      - GBP
+      - EUR
      
   - entity: country
     examples: 
-      - [India](country)
+      - India
+      - Pakisthan
+      - Canada
+      - South Africa
+      - Japan
       
   - entity: region
     examples: 
-      - [Hyderabad](region)
+      - Hyderabad
+      - Delhi
+      - Vancouver
+      - Kolkata
     
 
 slots:
