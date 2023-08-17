@@ -101,7 +101,7 @@ class ActionCurrencyExchangeRates(Action):
         currency_exchange_api_key = os.environ.get('CURRENCY_EXCHANGE_API_KEY')
         url = "https://currency-exchange.p.rapidapi.com/listquotes"
         headers = {
-            "X-RapidAPI-Key": "CURRENCY_EXCHANGE_API_KEY",
+            "X-RapidAPI-Key":currency_exchange_api_key ,
             "X-RapidAPI-Host": "currency-exchange.p.rapidapi.com"
         }
 
