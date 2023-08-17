@@ -17,23 +17,21 @@ intents:
 
 entities:
   - entity: destination
-    examples: 
+    examples:
       - Paris
       - London
       - New York
-      - Delhi
 
   - entity: duration
     examples: 
       - 3 days
       - 2 weeks
-      - 10 days
-      - 1 week
+      - 1 month
 
   - entity: city
     examples: 
-      - London
-      - Hyderabad
+      - Washington
+      - Texas
       - Mumbai
       - Toronto
       - California
@@ -56,7 +54,7 @@ entities:
       
   - entity: region
     examples: 
-      - Hyderabad
+      - Uttar Pradesh
       - Delhi
       - Vancouver
       - Kolkata
