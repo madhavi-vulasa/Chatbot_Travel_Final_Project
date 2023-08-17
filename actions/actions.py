@@ -69,7 +69,7 @@ class ActionGenerateTripItinerary(Action):
         trip_planner_api_key = os.environ.get('TRIP_PLANNER_API_KEY')
         url = "https://ai-trip-planner.p.rapidapi.com/"
         headers = {
-            "X-RapidAPI-Key": "TRIP_PLANNER_API_KEY",
+            "X-RapidAPI-Key": "trip_planner_api_key",
             "X-RapidAPI-Host": "ai-trip-planner.p.rapidapi.com"
         }
         params = {
