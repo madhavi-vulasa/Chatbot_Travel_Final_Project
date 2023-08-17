@@ -2,12 +2,90 @@ version: "3.1"
 
 rules:
 
+- rule: Greet the user
+  steps:
+  - intent: greet
+  - action: action_greet
+
 - rule: Say goodbye anytime the user says goodbye
   steps:
   - intent: goodbye
   - action: utter_goodbye
 
+
+- rule: Confirm user affirmation
+  steps:
+  - intent: affirm
+  - action: utter_happy
+
+- rule: Confirm user denial
+  steps:
+  - intent: deny
+  - action: utter_did_that_help
+
+- rule: Respond to user mood
+  steps:
+  - intent: mood_great
+  - action: utter_happy
+
+- rule: Respond to user mood
+  steps:
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+
 - rule: Say 'I am a bot' anytime the user challenges
   steps:
   - intent: bot_challenge
   - action: utter_iamabot
+
+
+- rule: Provide weather information
+  steps:
+  - intent: inquire_weather
+  - action: action_ask_weather
+  - action: utter_weather_response
+
+
+- rule: Generate trip itinerary
+  steps:
+  - intent: ask_trip_itinerary
+  - action: utter_ask_trip_itinerary
+  - action: action_generate_trip_itinerary
+  - action: utter_trip_itinerary_generated
+  - slot_was_set:
+      - destination: Paris
+      - duration: 5
+
+- rule: asking currency exchange rates
+  steps:
+  - intent: ask_currency_exchange_rates
+  - action: action_currency_exchange_rates
+  - action: utter_currency_exchange_rates
+  - slot_was_set:
+      - currency_type: USD
+
+- rule: Get hotel information
+  steps:
+  - intent: ask_hotel_information
+  - action: action_get_hotel_meta_data
+  - action: utter_hotel_information
+
+- rule: Get destination information
+  steps:
+  - intent: ask_destination_info
+  - action: utter_ask_destination_info
+  - action: action_get_destination_info
+  - action: utter_destination_info
+  - slot_was_set:
+      - destination_city: London
+
+- rule: Get flight prices
+  steps:
+  - intent: ask_flight_prices
+  - action: action_get_flight_fare
+  - action: utter_flight_prices
+  - slot_was_set:
+      - from_city: "New York"
+      - to_city: "Los Angeles"
+      - travel_date: "2023-08-15"

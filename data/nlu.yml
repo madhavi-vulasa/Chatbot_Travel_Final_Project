@@ -65,6 +65,8 @@ nlu:
     - so so perfect
     - so good
     - so perfect
+    - fine
+    - i am fine
 
 - intent: mood_unhappy
   examples: |
@@ -89,3 +91,56 @@ nlu:
     - are you a human?
     - am I talking to a bot?
     - am I talking to a human?
+
+- intent: inquire_weather
+  examples: |
+    - What's the weather like in New York?
+    - Tell me the weather in Los Angeles.
+    - How's the weather in London today?
+    - What's the forecast for Paris?
+    - Weather update for Sydney, please.
+    - How's the weather in Berlin?
+    - What's the temperature in Tokyo?
+    - Can you give me the weather report for Moscow?
+
+
+- intent: ask_trip_itinerary
+  examples: |
+    - Can you help me plan a trip?
+    - I need a travel itinerary.
+    - Generate a trip plan for me.
+    - Plan a trip to Paris for seven days.
+    - What's the itinerary for London for a two-week trip?
+    - Tell me about a trip to New York lasting five days.
+
+
+- intent: ask_destination_info
+  examples: |
+    - Can you tell me about the destination?
+    - What is there to know about the place?
+    - Provide information about the destination.
+
+- intent: ask_currency_exchange_rates
+  examples: |
+    - What are the current currency exchange rates?
+    - Can you tell me the exchange rates for different currencies?
+    - How much is 1 USD in EUR?
+
+- intent: ask_hotel_information
+  examples: |
+    - Can you provide information about hotels?
+    - Tell me about available hotels.
+    - Hotels information please.
+    - What do you know about hotels?
+
+- intent: ask_flight_prices
+  examples: |
+    - What are the flight prices?
+    - Can you provide flight prices?
+    - Tell me about flight prices.
+    - How much do flights cost?
+    - Show me the current flight fares.
+    - I want to know the cost of flights.
+    - What's the fare for flights?
+    - Are there any deals on flights?
+    - Any information on flight fares?

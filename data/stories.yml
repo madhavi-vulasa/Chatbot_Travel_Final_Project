@@ -2,29 +2,105 @@ version: "3.1"
 
 stories:
 
-- story: happy path
+- story: Greet the user
   steps:
   - intent: greet
-  - action: utter_greet
-  - intent: mood_great
-  - action: utter_happy
+  - action: action_greet
 
-- story: sad path 1
+- story: Say goodbye anytime the user says goodbye
   steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: Confirm user affirmation
+  steps:
   - intent: affirm
   - action: utter_happy
 
-- story: sad path 2
+- story: Confirm user denial
   steps:
-  - intent: greet
-  - action: utter_greet
+  - intent: deny
+  - action: utter_did_that_help
+
+
+- story: Respond to user mood - Great
+  steps:
+  - intent: mood_great
+  - action: utter_happy
+
+- story: Respond to user mood - Unhappy
+  steps:
   - intent: mood_unhappy
   - action: utter_cheer_up
   - action: utter_did_that_help
-  - intent: deny
-  - action: utter_goodbye
+
+- story: User asks about weather and gets response
+  steps:
+  - intent: inquire_weather
+  - action: action_ask_weather
+  - action: utter_weather_response
+
+
+- story: Challenge - Respond 'I am a bot'
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+  
+- story: Generate Trip Itinerary
+  steps:
+  - intent: greet
+  - action: action_greet
+  - intent: ask_trip_itinerary
+  - action: utter_ask_trip_itinerary
+  - action: action_generate_trip_itinerary
+  - action: utter_trip_itinerary_generated
+  - slot_was_set:
+      - destination: Paris
+      - duration: 5
+
+- story: Get Destination Info
+  steps:
+  - intent: greet
+  - action: action_greet
+  - intent: ask_destination_info
+  - action: utter_ask_destination_info
+  - action: action_get_destination_info
+  - action: utter_destination_info
+  - slot_was_set:
+      - destination_city: London
+
+- story: Currency Exchange Rates
+  steps:
+  - intent: greet
+  - action: action_greet
+  - intent: ask_currency_exchange_rates
+    entities:
+    - currency_type
+  - action: action_currency_exchange_rates
+  - action: utter_currency_exchange_rates
+  - slot_was_set:
+          - currency_type: USD
+
+
+- story: Get Flight Prices
+  steps:
+  - intent: ask_flight_prices
+  - entities:
+    - from_city
+    - to_city
+    - travel_date
+  - action: action_get_flight_fare
+  - action: utter_flight_prices
+  - slot_was_set:
+      - from_city: "New York"
+      - to_city: "Los Angeles"
+      - travel_date: "2023-08-15"
+
+
+- story: Get Hotel Information
+  steps:
+  - intent: greet
+  - action: action_greet
+  - intent: ask_hotel_information
+  - action: action_get_hotel_meta_data
+  - action: utter_hotel_information
