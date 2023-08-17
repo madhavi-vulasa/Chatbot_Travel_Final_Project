@@ -16,48 +16,13 @@ intents:
   - ask_flight_prices
 
 entities:
-  - entity: destination
-    examples:
-      - Paris
-      - London
-      - New York
+  - destination
+  - duration
+  - city
+  - currency_type
+  - country
+  - region
 
-  - entity: duration
-    examples: 
-      - 3 days
-      - 2 weeks
-      - 1 month
-
-  - entity: city
-    examples: 
-      - Washington
-      - Texas
-      - Mumbai
-      - Toronto
-      - California
-
-  - entity: currency_type
-    examples: 
-      - USD
-      - INR
-      - CAD
-      - GBP
-      - EUR
-     
-  - entity: country
-    examples: 
-      - India
-      - Pakisthan
-      - Canada
-      - South Africa
-      - Japan
-      
-  - entity: region
-    examples: 
-      - Uttar Pradesh
-      - Delhi
-      - Vancouver
-      - Kolkata
     
 slots:
   trip_itinerary:
