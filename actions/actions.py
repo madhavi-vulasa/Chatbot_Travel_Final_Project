@@ -6,7 +6,6 @@ from rasa_sdk.executor import CollectingDispatcher
 from dotenv import load_dotenv
 
 load_dotenv()
-
 class ActionGreet(Action):
     def name(self) -> Text:
         return "action_greet"
@@ -86,7 +85,7 @@ class ActionGenerateTripItinerary(Action):
         else:
             response_message = "Sorry, I couldn't generate the travel itinerary at the moment."
 
-        dispatcher.utter_message(text=response_message)
+        dispatcher.utter_message(response="utter_trip_itinerary_generated", trip_itinerary=response_message)
         return []
 
 # Currency Exchange
