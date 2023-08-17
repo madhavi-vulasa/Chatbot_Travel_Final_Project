@@ -1,0 +1,12 @@
+{
+  "rule_only_slots": [
+    "currency_type",
+    "travel_date",
+    "from_city",
+    "duration",
+    "destination",
+    "destination_city",
+    "to_city"
+  ],
+  "rule_only_loops": []
+}
