@@ -69,7 +69,7 @@ class ActionGenerateTripItinerary(Action):
         trip_planner_api_key = os.environ.get('TRIP_PLANNER_API_KEY')
         url = "https://ai-trip-planner.p.rapidapi.com/"
         headers = {
-            "X-RapidAPI-Key": "trip_planner_api_key",
+            "X-RapidAPI-Key": trip_planner_api_key,
             "X-RapidAPI-Host": "ai-trip-planner.p.rapidapi.com"
         }
         params = {
@@ -134,7 +134,7 @@ class ActionGetHotelMetaData(Action):
         hotels_meta_api_key = os.environ.get('HOTELS_META_API_KEY')
         url = "https://hotels4.p.rapidapi.com/v2/get-meta-data"
         headers = {
-            "X-RapidAPI-Key": "HOTELS_META_API_KEY",
+            "X-RapidAPI-Key": hotels_meta_api_key,
             "X-RapidAPI-Host": "hotels4.p.rapidapi.com"
         }
         params = {
@@ -170,7 +170,7 @@ class ActionGetDestinationInfo(Action):
         destination_info_api_key = os.environ.get('DESTINATION_INFO_API_KEY')
         url = "https://wft-geo-db.p.rapidapi.com/v1/geo/adminDivisions"
         headers = {
-            "X-RapidAPI-Key": "DESTINATION_INFO_API_KEY",
+            "X-RapidAPI-Key": destination_info_api_key,
             "X-RapidAPI-Host": "wft-geo-db.p.rapidapi.com"
         }
         params = {
@@ -217,7 +217,7 @@ class ActionGetFlightFare(Action):
             "currency": "USD"
         }
         headers = {
-            "X-RapidAPI-Key": "FLIGHT_FARE_API_KEY",  # Replace with your actual RapidAPI Key
+            "X-RapidAPI-Key": flight_fare_api_key,  # Replace with your actual RapidAPI Key
             "X-RapidAPI-Host": "flight-fare-search.p.rapidapi.com"
         }
 
