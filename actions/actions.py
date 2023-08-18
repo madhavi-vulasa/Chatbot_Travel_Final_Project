@@ -32,38 +32,22 @@ class ActionHappy(Action):
         dispatcher.utter_message(response="utter_happy")
         return []
 
-
-#Trip Itinary
 class ActionGenerateTripItinerary(Action):
-    def name(self) -> Text:
+    def name(self):
         return "action_generate_trip_itinerary"
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]):
 
-    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        destination = tracker.get_slot("destination")
-        duration = tracker.get_slot("duration")
+        user_input = tracker.latest_message.get('text')
+        openai.api_key = os.getenv("OPENAI_API_KEY")
+        prompt = f"Generate a trip itinerary for a trip to London for 3 days: {user_input}"
 
-
-        # Make an API call to generate a travel itinerary using the provided API
-        trip_planner_api_key = os.environ.get('TRIP_PLANNER_API_KEY')
-        url = "https://ai-trip-planner.p.rapidapi.com/"
-        headers = {
-            "X-RapidAPI-Key": trip_planner_api_key,
-            "X-RapidAPI-Host": "ai-trip-planner.p.rapidapi.com"
-        }
-        params = {
-            "days": duration,
-            "destination": destination
-        }
-
-        response = requests.get(url, headers=headers, params=params)
-
-        if response.status_code == 200:
-            trip_itinerary = response.json()
-            response_message = f"Sure! Here's a {duration} day trip itinerary for {destination}: {trip_itinerary}"
-        else:
-            response_message = "Sorry, I couldn't generate the travel itinerary at the moment."
-
-        print("API Response Status Code:", response.status_code)  # Add this line to print the status code
-
-        dispatcher.utter_message(response="utter_trip_itinerary_generated", trip_itinerary=response_message)
+        # Use the OpenAI API to generate a trip itinerary based on user input
+        response = openai.Completion.create(
+            engine="davinci",
+            prompt=prompt,
+            max_tokens=100
+        )
+        generated_itinerary = response.choices[0].text.strip()
+        # Send the generated itinerary as a response to the user
+        dispatcher.utter_message(text=generated_itinerary)
         return []
