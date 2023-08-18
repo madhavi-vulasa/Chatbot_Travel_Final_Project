@@ -16,7 +16,6 @@ entities:
   - destination
   - duration
 
-
 forms:
   trip_form:
     destination:
@@ -25,7 +24,7 @@ forms:
     duration:
       - type: from_entity
         entity: duration
-
+        
 slots:
   destination:
     type: text
