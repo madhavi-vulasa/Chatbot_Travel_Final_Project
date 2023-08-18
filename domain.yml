@@ -24,7 +24,8 @@ forms:
     duration:
       - type: from_entity
         entity: duration
-        
+
+
 slots:
   destination:
     type: text
