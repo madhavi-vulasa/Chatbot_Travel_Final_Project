@@ -15,9 +15,9 @@ intents:
 entities:
   - destination
   - duration
-
+  
 forms:
-  - trip_form
+  trip_form:
 
 
 slots:
