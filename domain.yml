@@ -28,20 +28,25 @@ slots:
   trip_itinerary:
     type: text
     mappings: []
+    
   destination:
     type: text
     mappings: []
+
   duration:
     type: text
     mappings: []
+
   destination_city:
     type: text
     mappings: []
+
   currency_type:
     type: text
     mappings:
       - type: from_entity
         entity: currency_type
+
   country:
     type: text
     mappings:
@@ -52,15 +57,15 @@ slots:
     mappings:
       - type: from_entity
         entity: region
-    mappings:
-      - type: from_entity
-        entity: region
+
   from_city:
     type: text
     mappings: []
+
   to_city:
     type: text
     mappings: []
+
   travel_date:
     type: text
     mappings: []    
