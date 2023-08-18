@@ -40,10 +40,20 @@ rules:
   - action: utter_iamabot
 
 
-- rule: Trigger User provides trip details story
+- rule: Trigger User provides trip details rule
+  condition:
+  - active_loop: trip_form
   steps:
-  - intent: ask_trip_itinerary
-  - intent: inform_destination
-    entities:
-    - destination: "London"
-  - action: action_generate_trip_itinerary
+    - intent: ask_trip_itinerary
+    - action: utter_ask_trip_itinerary
+    - intent: inform_destination
+      entities:
+        - destination: "London"
+    - slot_was_set:
+        - destination: "London"
+    - intent: inform_duration
+      entities:
+        - duration: "3 days"
+    - slot_was_set:
+        - duration: "3 days"
+    - action: action_generate_trip_itinerary
