@@ -1,0 +1,62 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - Hey
+    - Hello
+    - Hi there
+
+- intent: goodbye
+  examples: |
+    - Bye
+    - Goodbye
+    - See you later
+
+- intent: affirm
+  examples: |
+    - Yes
+    - Yeah
+    - Definitely
+
+- intent: deny
+  examples: |
+    - No
+    - Nah
+    - Not really
+
+- intent: mood_great
+  examples: |
+    - I'm feeling great
+    - I'm fantastic
+    - I'm on top of the world
+
+- intent: mood_unhappy
+  examples: |
+    - I'm sad
+    - I'm not feeling well
+    - Things are going wrong
+
+- intent: bot_challenge
+  examples: |
+    - Are you a bot?
+    - Is this a computer program?
+
+- intent: ask_trip_itinerary
+  examples: |
+    - Can you help me plan a trip?
+    - I need assistance with my travel plans
+    - Could you suggest an itinerary for a vacation?
+
+- intent: inform_duration
+  examples: |
+    - I'm planning a trip for 5 days
+    - The duration of my journey will be 2 weeks
+    - My vacation will last for 10 days
+
+- intent: inform_destination
+  examples: |
+    - I'm traveling to Paris
+    - My destination is London
+    - I'm heading to New York
+
