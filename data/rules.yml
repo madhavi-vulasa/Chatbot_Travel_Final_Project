@@ -40,13 +40,6 @@ rules:
   - action: utter_iamabot
 
 
-- rule: Provide weather information
-  steps:
-  - intent: inquire_weather
-  - action: action_ask_weather
-  - action: utter_weather_response
-
-
 - rule: Generate trip itinerary
   steps:
   - intent: ask_trip_itinerary
@@ -57,35 +50,4 @@ rules:
       - destination: Paris
       - duration: 5
 
-- rule: asking currency exchange rates
-  steps:
-  - intent: ask_currency_exchange_rates
-  - action: action_currency_exchange_rates
-  - action: utter_currency_exchange_rates
-  - slot_was_set:
-      - currency_type: USD
 
-- rule: Get hotel information
-  steps:
-  - intent: ask_hotel_information
-  - action: action_get_hotel_meta_data
-  - action: utter_hotel_information
-
-- rule: Get destination information
-  steps:
-  - intent: ask_destination_info
-  - action: utter_ask_destination_info
-  - action: action_get_destination_info
-  - action: utter_destination_info
-  - slot_was_set:
-      - destination_city: London
-
-- rule: Get flight prices
-  steps:
-  - intent: ask_flight_prices
-  - action: action_get_flight_fare
-  - action: utter_flight_prices
-  - slot_was_set:
-      - from_city: "New York"
-      - to_city: "Los Angeles"
-      - travel_date: "2023-08-15"

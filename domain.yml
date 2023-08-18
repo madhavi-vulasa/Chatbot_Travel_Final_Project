@@ -52,8 +52,18 @@ responses:
   utter_ask_trip_itinerary:
     - text: "Sure, I can help you with that. Please provide me the {destination} and the {duration} of the trip."
 
-  utter_trip_itinerary_generated:
-    - text: "Here's the trip itinerary:\n{trip_itinerary}"
+
+  utter_generate_trip_itinerary:
+    - text: "Sure! Let me share the exciting trip itinerary I've put together for your {duration} day journey to {destination}."
+    - text: "Absolutely! Here's a personalized {duration} day trip itinerary that covers all the must-see attractions in {destination}."
+    - text: "Great choice! I've created a detailed {duration} day trip itinerary for your adventure in {destination}."
+    - text: "Your {duration} day trip to {destination} is going to be amazing! Take a look at this comprehensive itinerary I've prepared."
+    - text: "Voila! Your dream trip to {destination} now has a fantastic {duration} day itinerary. Check it out!"
+    - text: "You're all set for your {duration} day {destination} escapade! Here's an itinerary filled with exciting activities."
+    - text: "Ready for an unforgettable journey? This {duration} day trip itinerary for {destination} is packed with fun experiences."
+    - text: "Here's the perfect plan for your {duration} day {destination} trip. Get ready to explore and enjoy!"
+    - text: "Your {duration} day {destination} adventure just got even better! Take a look at this well-crafted trip itinerary."
+    - text: "Ta-da! I've created a {duration} day {destination} trip itinerary that ensures you make the most of your time."
 
 actions:
   - action_greet

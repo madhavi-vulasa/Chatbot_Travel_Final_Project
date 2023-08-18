@@ -92,8 +92,15 @@ nlu:
     - am I talking to a bot?
     - am I talking to a human?
 
-
 - intent: ask_trip_itinerary
   examples: |
     - Can you help me plan a trip to [Paris](destination) for [5 days](duration)?
     - I need a travel itinerary for [London](destination) for [2 weeks](duration).
+    - Create an itinerary for a [3-day](duration) trip to [New York](destination).
+    - What's the recommended itinerary for a trip to [Tokyo](destination) lasting [10 days](duration)?
+    - I'm looking for a travel plan for [Rome](destination) for [4 days](duration).
+    - Plan a trip to [Sydney](destination) for [1 week](duration) with interesting activities.
+    - How should I spend [3 days](duration) in [Barcelona](destination)?
+    - Suggest an itinerary for a [5-day](duration) visit to [Amsterdam](destination).
+    - Give me a travel plan for [Prague](destination) for [4 days](duration).
+    - What's a good itinerary for a [2-week](duration) trip to [Bangkok](destination)?
