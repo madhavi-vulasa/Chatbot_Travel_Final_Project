@@ -40,10 +40,8 @@ stories:
   - intent: bot_challenge
   - action: utter_iamabot
   
-- story: user provides trip details
+- story: Trigger User provides trip details story
   steps:
-    - intent: greet
-    - action: action_greet
     - intent: ask_trip_itinerary
     - action: utter_ask_trip_itinerary
     - intent: inform_destination

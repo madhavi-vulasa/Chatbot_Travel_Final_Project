@@ -23,12 +23,12 @@ rules:
   - intent: deny
   - action: utter_did_that_help
 
-- rule: Respond to user mood
+- rule: respond to user is happy
   steps:
   - intent: mood_great
   - action: utter_happy
 
-- rule: Respond to user mood
+- rule: Respond to user is sad
   steps:
   - intent: mood_unhappy
   - action: utter_cheer_up
