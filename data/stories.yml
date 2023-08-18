@@ -6,6 +6,7 @@ stories:
   steps:
   - intent: greet
   - action: action_greet
+  - action: utter_greet
 
 - story: Say goodbye anytime the user says goodbye
   steps:
