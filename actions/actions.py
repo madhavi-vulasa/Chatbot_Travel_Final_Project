@@ -2,6 +2,7 @@ import os
 import openai
 import requests
 import spacy
+import random
 from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker 
 from rasa_sdk.executor import CollectingDispatcher
@@ -37,21 +38,30 @@ class ActionHappy(Action):
         return []
 
 class ActionGenerateTripItinerary(Action):
-    def name(self):
+    def name(self) -> Text:
         return "action_generate_trip_itinerary"
-    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]):
 
-        user_input = tracker.latest_message.get('text')
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        destination = tracker.get_slot("destination")
+        duration = tracker.get_slot("duration")
+
+        # Use the OpenAI API key from the environment variable
         openai.api_key = os.getenv("OPENAI_API_KEY")
-        prompt = f"Generate a trip itinerary for a trip to London for 3 days: {user_input}"
 
-        # Use the OpenAI API to generate a trip itinerary based on user input
+        # Create a prompt for the OpenAI API
+        prompt = f"Generate a trip itinerary for a trip to {destination} for {duration}:"
+
+        # Use the OpenAI API to generate the trip itinerary
         response = openai.Completion.create(
             engine="davinci",
             prompt=prompt,
             max_tokens=100
         )
         generated_itinerary = response.choices[0].text.strip()
-        # Send the generated itinerary as a response to the user
-        dispatcher.utter_message(text=generated_itinerary)
+
+        # Use the extracted values in the response template
+        response_template = random.choice(domain["responses"]["utter_generate_trip_itinerary"])
+        response = response_template.format(destination=destination, duration=duration, itinerary=generated_itinerary)
+        dispatcher.utter_message(text=response)
+
         return []
