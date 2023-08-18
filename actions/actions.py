@@ -85,6 +85,8 @@ class ActionGenerateTripItinerary(Action):
         else:
             response_message = "Sorry, I couldn't generate the travel itinerary at the moment."
 
+        print("API Response Status Code:", response.status_code)  # Add this line to print the status code
+        
         dispatcher.utter_message(response="utter_trip_itinerary_generated", trip_itinerary=response_message)
         return []
 
