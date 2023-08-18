@@ -17,11 +17,11 @@ entities:
     
 slots:
   destination:
-    type: unfeaturized
+    type: text
     mappings: []
 
   duration:
-    type: unfeaturized
+    type: text
     mappings: []
 
 responses:

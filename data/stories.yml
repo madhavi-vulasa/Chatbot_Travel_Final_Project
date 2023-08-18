@@ -39,11 +39,20 @@ stories:
   - intent: bot_challenge
   - action: utter_iamabot
   
-- story: Generate Trip Itinerary
+- story: user provides trip details
   steps:
-  - intent: greet
-  - action: action_greet
-  - intent: ask_trip_itinerary
-  - action: utter_ask_trip_itinerary
-  - action: action_generate_trip_itinerary
-  - action: utter_generate_trip_itinerary
+    - intent: greet
+    - action: action_greet
+    - intent: ask_trip_itinerary
+    - action: utter_ask_trip_itinerary
+    - intent: inform_destination
+      entities:
+        - destination: "London"
+    - slot_was_set:
+        - destination: "London"
+    - intent: inform_duration
+      entities:
+        - duration: "3 days"
+    - slot_was_set:
+        - duration: "3 days"
+    - action: action_generate_trip_itinerary
