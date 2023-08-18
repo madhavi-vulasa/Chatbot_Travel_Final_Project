@@ -16,10 +16,6 @@ entities:
   - duration
     
 slots:
-  trip_itinerary:
-    type: text
-    mappings: []
-
   destination:
     type: text
     mappings: []
