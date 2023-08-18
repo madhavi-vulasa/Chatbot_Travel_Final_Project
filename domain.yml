@@ -52,6 +52,9 @@ slots:
     mappings:
       - type: from_entity
         entity: region
+    mappings:
+      - type: from_entity
+        entity: region
   from_city:
     type: text
     mappings: []
