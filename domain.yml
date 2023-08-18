@@ -27,6 +27,7 @@ forms:
 
 
 slots:
+
   destination:
     type: text
     mappings: []
