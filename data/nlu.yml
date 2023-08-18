@@ -92,6 +92,21 @@ nlu:
     - am I talking to a bot?
     - am I talking to a human?
 
+- intent: inform_duration
+  examples: |
+    - I'm planning a trip for 3 days.
+    - The duration of the trip is 5 days.
+    - How long is the trip?
+    - Can you help me with a 2-day trip itinerary?
+
+- intent: inform_destination
+  examples: |
+    - I'm planning a trip to London.
+    - The destination is Paris.
+    - I want to travel to New York.
+    - Can you help me with a trip to Tokyo?
+
+
 - intent: ask_trip_itinerary
   examples: |
     - Can you help me plan a trip to [Paris](destination) for [5 days](duration)?
