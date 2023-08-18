@@ -13,7 +13,6 @@ rules:
   - intent: goodbye
   - action: utter_goodbye
 
-
 - rule: Confirm user affirmation
   steps:
   - intent: affirm
@@ -47,12 +46,12 @@ rules:
     - intent: ask_trip_itinerary
     - action: utter_ask_trip_itinerary
     - intent: inform_destination
-        entities:
+      entities:
         - destination: "London"
     - slot_was_set:
         - destination: "London"
     - intent: inform_duration
-        entities:
+      entities:
         - duration: "3 days"
     - slot_was_set:
         - duration: "3 days"
