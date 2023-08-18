@@ -1,12 +1,16 @@
 import os
 import openai
 import requests
+import spacy
 from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker 
 from rasa_sdk.executor import CollectingDispatcher
 from dotenv import load_dotenv
 
 load_dotenv()
+spacy_model_name = "en_core_web_md"  # Replace with your model name if different
+nlp = spacy.load(spacy_model_name)
+
 class ActionGreet(Action):
     def name(self) -> Text:
         return "action_greet"
