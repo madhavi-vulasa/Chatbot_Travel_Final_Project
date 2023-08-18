@@ -39,7 +39,11 @@ rules:
   - intent: bot_challenge
   - action: utter_iamabot
 
+
 - rule: Trigger User provides trip details story
   steps:
   - intent: ask_trip_itinerary
-  - steps: User provides trip details
+  - intent: inform_destination
+    entities:
+    - destination: "London"
+  - action: action_generate_trip_itinerary
