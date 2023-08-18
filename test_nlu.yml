@@ -1,0 +1,11 @@
+version: "2.0"
+nlu:
+- intent: ask_trip_itinerary
+  examples: |
+    - Can you help me plan a trip to [Toronto](destination) for [5 days](duration)?
+    - I'm looking to travel to [New York](destination) for [a week](duration).
+    - Help me with a travel itinerary for [Los Angeles](destination) for [3 days](duration).
+    - Can you assist me in planning a trip to [Paris](destination) for [10 days](duration)?
+    - What's your advice for a trip to [London](destination) lasting [2 weeks](duration)?
+    - Plan a journey to [Rome](destination) for [4 days](duration), please.
+    - [Dubai](destination) trip for [3 days](duration) - any recommendations?
