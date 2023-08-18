@@ -25,9 +25,7 @@ forms:
       - type: from_entity
         entity: duration
 
-
 slots:
-
   destination:
     type: text
     mappings: []
@@ -55,8 +53,6 @@ responses:
 
   utter_iamabot:
     - text: "I am a bot, powered by Rasa."
-
-# responses for trip itinerary
 
   utter_generate_trip_itinerary:
     - text: "Sure! Let me share the exciting trip itinerary I've put together for your {duration} day journey to {destination}."
