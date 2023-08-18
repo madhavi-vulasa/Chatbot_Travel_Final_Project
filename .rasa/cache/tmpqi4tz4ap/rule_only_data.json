@@ -1,0 +1,7 @@
+{
+  "rule_only_slots": [
+    "duration",
+    "destination"
+  ],
+  "rule_only_loops": []
+}

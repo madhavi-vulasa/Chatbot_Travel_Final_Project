@@ -46,4 +46,4 @@ stories:
   - intent: ask_trip_itinerary
   - action: utter_ask_trip_itinerary
   - action: action_generate_trip_itinerary
-  - action: utter_trip_itinerary_generated
+  - action: utter_generate_trip_itinerary

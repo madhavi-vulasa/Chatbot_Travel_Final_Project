@@ -77,7 +77,7 @@ actions:
   - utter_iamabot
   - utter_goodbye
   - utter_ask_trip_itinerary
-  - utter_trip_itinerary_generated
+  - utter_generate_trip_itinerary
 
 session_config:
   session_expiration_time: 180  # Adjust this value according to your needs
