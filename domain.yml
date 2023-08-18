@@ -8,27 +8,18 @@ intents:
   - mood_great
   - mood_unhappy
   - bot_challenge
-  - inquire_weather
   - ask_trip_itinerary
-  - ask_destination_info
-  - ask_currency_exchange_rates
-  - ask_hotel_information
-  - ask_flight_prices
+  
 
 entities:
   - destination
   - duration
-  - city
-  - currency_type
-  - country
-  - region
-
     
 slots:
   trip_itinerary:
     type: text
     mappings: []
-    
+
   destination:
     type: text
     mappings: []
@@ -36,40 +27,6 @@ slots:
   duration:
     type: text
     mappings: []
-
-  destination_city:
-    type: text
-    mappings: []
-
-  currency_type:
-    type: text
-    mappings:
-      - type: from_entity
-        entity: currency_type
-
-  country:
-    type: text
-    mappings:
-      - type: from_entity
-        entity: country
-  region:
-    type: text
-    mappings:
-      - type: from_entity
-        entity: region
-
-  from_city:
-    type: text
-    mappings: []
-
-  to_city:
-    type: text
-    mappings: []
-
-  travel_date:
-    type: text
-    mappings: []    
-
 
 responses:
   utter_greet:
@@ -91,10 +48,6 @@ responses:
   utter_iamabot:
     - text: "I am a bot, powered by Rasa."
 
-# responses for weather
-  utter_weather_response:
-    - text: "The weather in {city} is {condition} with a temperature of {temperature}°C."
-
 # responses for trip itinerary
   utter_ask_trip_itinerary:
     - text: "Sure, I can help you with that. Please provide me the {destination} and the {duration} of the trip."
@@ -102,40 +55,11 @@ responses:
   utter_trip_itinerary_generated:
     - text: "Here's the trip itinerary:\n{trip_itinerary}"
 
-# responses for info on destination
-  utter_ask_destination_info:
-    - text: "Sure, I can provide you with information about the destination. Please specify the name of the {region} and {country} you're interested in."
-
-  utter_destination_info:
-    - text: "Here is the information about {region}, {country}:\n{admin_divisions_data}"
-
-# responses for currency exchange rates
-  utter_currency_exchange_rates:
-    - text: "Sure, here are the current currency exchange rates:\n{exchange_rates}"
-    - text: "Here are the latest exchange rates for different currencies:\n{exchange_rates}"
-    - text: "Currency exchange rates as of now:\n{exchange_rates}"
-    - text: "I have the following currency exchange rates:\n{exchange_rates}"
-
-# responses for flight prices
-  utter_flight_prices:
-    - text: "Here is the flight fare information:\n{fare_data}"
-    - text: "The flight fare details are as follows:\n{fare_data}"
-    - text: "Flight fare information for the specified route and date:\n{fare_data}"
-
-# responses for hotel information
-  utter_hotel_information:
-    - text: "Here is the hotel information for {destination}"
-
 actions:
   - action_greet
   - action_cheer_up
   - action_happy
-  - action_ask_weather
   - action_generate_trip_itinerary
-  - action_currency_exchange_rates
-  - action_get_hotel_meta_data
-  - action_get_destination_info
-  - action_get_flight_fare
   - utter_greet
   - utter_cheer_up
   - utter_did_that_help
@@ -144,12 +68,6 @@ actions:
   - utter_goodbye
   - utter_ask_trip_itinerary
   - utter_trip_itinerary_generated
-  - utter_ask_destination_info
-  - utter_destination_info
-  - utter_currency_exchange_rates
-  - utter_flight_prices
-  - utter_hotel_information
-  - utter_weather_response
 
 session_config:
   session_expiration_time: 180  # Adjust this value according to your needs
