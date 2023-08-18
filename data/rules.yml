@@ -45,7 +45,7 @@ rules:
   - active_loop: trip_form
   steps:
     - intent: ask_trip_itinerary
-    - action: utter_ask_trip_itinerary
+    - action: utter_generate_trip_itinerary
     - intent: inform_destination
       entities:
         - destination: "London"
