@@ -3,9 +3,7 @@
 # Server where the models are pulled from.
 # https://rasa.com/docs/rasa/model-storage#fetching-models-from-a-server
 
-models:
-  default:
-    url: "http://localhost:5005"
+
 #  url: http://my-server.com/models/default_core@latest
 #  wait_time_between_pulls:  10   # [optional](default: 100)
 
@@ -20,11 +18,6 @@ action_endpoint:
 # https://rasa.com/docs/rasa/tracker-stores
 
 
-tracker_store:
-  # Configuration for your tracker store (e.g., SQL, Redis)
-  type: "SQL"
-  dialect: "sqlite"
-  url: "db.sqlite3"
 #tracker_store:
 #    type: redis
 #    url: <host of the redis instance, e.g. localhost>
