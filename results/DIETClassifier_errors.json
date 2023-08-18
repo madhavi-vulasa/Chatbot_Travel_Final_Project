@@ -1,0 +1,30 @@
+[
+  {
+    "text": "have a nice day",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "duration",
+        "start": 12,
+        "end": 15,
+        "confidence_entity": 0.5241020321846008,
+        "value": "day",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "my day was horrible",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "duration",
+        "start": 3,
+        "end": 6,
+        "confidence_entity": 0.5199444890022278,
+        "value": "day",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  }
+]
