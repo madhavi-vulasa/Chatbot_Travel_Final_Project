@@ -18,7 +18,13 @@ entities:
 
 forms:
   action_trip_form:
-
+    destination:
+      - type: from_entity
+        entity: destination
+    duration:
+      - type: from_entity
+        entity: duration
+        
 slots:
   destination:
     type: text
