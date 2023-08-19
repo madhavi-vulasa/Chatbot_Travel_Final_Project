@@ -52,7 +52,7 @@ responses:
     - text: "How many days will your trip last?"
 
   utter_ask_destination:
-    - text: "Where would you like to travel?
+    - text: "Where would you like to travel?"
 
   utter_generate_trip_itinerary:
     - text: "Sure! Let me share the exciting trip itinerary I've put together for your {duration} day journey to {destination}."
