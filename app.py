@@ -1,59 +1,50 @@
-from flask import request,jsonify
-from flask import Flask, render_template, request, jsonify
-from flask_socketio import SocketIO
-import json
-import requests
-from flask_cors import CORS
+from flask import Flask, request, jsonify
+from rasa_sdk import Action, Tracker
+from rasa_sdk.executor import CollectingDispatcher
+from rasa.core.agent import Agent
+import openai
+import random
 import os
 
 app = Flask(__name__)
-socketio = SocketIO(app)
-CORS(app)
 
-@app.route('/', methods=['GET', 'POST'])
-def index():
-    if request.method == 'POST':
-        user_message = request.form['user_message']
-        
-        # Process the user message and generate a response
-        response = process_user_message(user_message)  # Replace with your actual response logic
-        
-        # Emit the response to the client using WebSockets
-        socketio.emit('bot_message', {'message': response})
-        
-        return jsonify({"response": response})
-    
-    # Return a response for GET requests
-    return render_template('index.html')
+# Replace with your model path
+model_path = "path_to_your_rasa_model"
 
-def process_user_message(user_message):
-    # Replace with the URL of your Rasa API
-    rasa_api_url = "http://localhost:5005/webhooks/rest/webhook"
-    
-    # Get the Rasa API key from the environment variable
-    trip_api_key = os.environ.get("TRIP_PLANNER_API_KEY")
-    
-    # Prepare the headers for the Rasa API request
-    headers = {
-        "Authorization": f"Bearer {trip_api_key}"
-    }
-    
-    # Prepare the payload for the Rasa API request
-    payload = {
-        "sender": "User",
-        "message": user_message
-    }
-    
-    # Make the POST request to the Rasa API
-    response = requests.post(rasa_api_url, json=payload, headers=headers)
-    
-    # Check if the request was successful and parse the response
-    if response.status_code == 200:
-        rasa_response = response.json()
-        if rasa_response:
-            return rasa_response[0]['text']  # Assuming Rasa returns the response in this format
-    else:
-        return "Sorry, I'm having trouble processing your request."
+# Load Rasa model
+agent = Agent.load(model_path)
 
-if __name__ == '__main__':
-    socketio.run(app, host='0.0.0.0', port=5000)
+# Set OpenAI API key
+openai.api_key = os.getenv("OPENAI_API_KEY")
+
+class RasaAction(Action):
+    def name(self) -> str:
+        return "rasa_action"
+
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: dict) -> list:
+        # Extract user message
+        user_message = tracker.latest_message.get("text")
+
+        # Send user message to Rasa model
+        responses = agent.handle_text(user_message)
+
+        # Extract and send bot response
+        bot_response = responses[0]['text']
+        dispatcher.utter_message(text=bot_response)
+
+        return []
+
+@app.route("/webhook", methods=["POST"])
+def webhook():
+    data = request.get_json()
+    user_message = data["message"]
+
+    # Send user message to Rasa model
+    responses = agent.handle_text(user_message)
+
+    # Extract and return bot response
+    bot_response = responses[0]['text']
+    return jsonify({"response": bot_response})
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5005)
