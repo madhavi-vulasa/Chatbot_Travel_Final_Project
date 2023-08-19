@@ -15,7 +15,7 @@ intents:
 entities:
   - destination
   - duration
-
+  
 forms:
   action_trip_form:
     destination:
