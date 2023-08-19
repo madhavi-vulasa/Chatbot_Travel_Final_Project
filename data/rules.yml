@@ -47,7 +47,7 @@ rules:
     - action: action_trip_form
     - active_loop: action_trip_form
     - slot_was_set:
-        - destination: "London"
+        - destination: "London"uu
     - intent: inform_duration
       conditions:
       - active_loop: action_trip_form
