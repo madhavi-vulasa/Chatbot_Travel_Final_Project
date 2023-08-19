@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <title>Traveler Chatbot</title>
+</head>
+<body>
+    <div class='mainHeader' id='mainHeader'>
+        <h1 style="text-align: center; font-family: 'Courier New', Courier, monospace;">
+            TRAVEL BOT
+        </h1>
+    </div>
+    <div style="width: 50%; text-align: center; margin-left: 25vw; margin-right: 20vw;">
+        <div id="chatcontainer">
+            <div class="message-container">
+                <div class="message bot-message">My travel-bot. </div>
+            </div>
+            <div id="messages" class="message-container"></div>
+        </div>
+        <div id="messageinput">
+            <input type="text" id="inputbox" name="userinput" onkeyup="enterListener(event)" placeholder="Please type ">
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        var socket = io.connect('http://' + document.domain + ':' + location.port);
+        socket.on('connect', function () {
+            socket.send('User has connected!');
+        });
+
+        socket.on('bot_message', function (msg) {
+            var messagesDiv = document.getElementById("messages");
+            var messageDiv = document.createElement("div");
+            messageDiv.className = "message-container";
+            var botMessageDiv = document.createElement("div");
+            botMessageDiv.className = "message bot-message";
+            botMessageDiv.innerText = msg.message;
+            messageDiv.appendChild(botMessageDiv);
+            messagesDiv.appendChild(messageDiv);
+        });
+
+        function enterListener(event) {
+            if (event.keyCode === 13) {
+                var inputBox = document.getElementById("inputbox");
+                var userMessage = inputBox.value;
+                var messagesDiv = document.getElementById("messages");
+                var messageDiv = document.createElement("div");
+                messageDiv.className = "message-container";
+                var userMessageDiv = document.createElement("div");
+                userMessageDiv.className = "message human-message";
+                userMessageDiv.style.marginLeft = "auto";
+                userMessageDiv.innerText = userMessage;
+                messageDiv.appendChild(userMessageDiv);
+                messagesDiv.appendChild(messageDiv);
+                inputBox.value = "";
+
+                // Send the user message to the server using SocketIO
+                socket.send(userMessage);
+            }
+        }
+    </script>
+</body>
+</html>
