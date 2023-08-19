@@ -11,6 +11,7 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/rasa-webchat/lib/index.min.js"></script>
+    <script src="base.js"></script>
     <script>
         const webchat = window.WebChat.create({
             customData: { language: "en" },  // Set the language
@@ -24,14 +25,14 @@
         });
 
         document.querySelector("#send-btn").addEventListener("click", () => {
-            const userInput = document.querySelector("#user-input").value;
-            document.querySelector("#user-input").value = "";
+            const userInput = document.querySelector("user-input").value;
+            document.querySelector("user-input").value = "";
             webchat.send(userInput);
         });
 
         document.querySelector("#user-input").addEventListener("keydown", (event) => {
             if (event.key === "Enter") {
-                const userInput = document.querySelector("#user-input").value;
+                const userInput = document.querySelector("user-input").value;
                 document.querySelector("#user-input").value = "";
                 webchat.send(userInput);
             }
