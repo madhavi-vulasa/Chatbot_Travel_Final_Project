@@ -19,5 +19,5 @@ rasa test nlu- to test the model with different pipelines
 To run the chatbot - rasa shell
 rasa run actions   command has to be active in another terminal only then rasa shell can interact
 
-Openai Api key - used to rwetrieve travel itenary information.
+Openai Api key - used to retrieve travel itenary information.
 
