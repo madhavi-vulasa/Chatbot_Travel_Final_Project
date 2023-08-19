@@ -17,13 +17,7 @@ entities:
   - duration
 
 forms:
-  trip_form:
-    destination:
-      - type: from_entity
-        entity: destination
-    duration:
-      - type: from_entity
-        entity: duration
+  action_trip_form:
 
 slots:
   destination:
@@ -53,6 +47,12 @@ responses:
 
   utter_iamabot:
     - text: "I am a bot, powered by Rasa."
+
+  utter_ask_duration:
+    - text: "How many days will your trip last?"
+
+  utter_ask_destination:
+    - text: "Where would you like to travel?
 
   utter_generate_trip_itinerary:
     - text: "Sure! Let me share the exciting trip itinerary I've put together for your {duration} day journey to {destination}."

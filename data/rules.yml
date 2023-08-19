@@ -39,19 +39,18 @@ rules:
   - intent: bot_challenge
   - action: utter_iamabot
 
-
-- rule: Trigger User provides trip details story
-    steps:
-      - intent: ask_trip_itinerary
-      - action: utter_generate_trip_itinerary
-      - action: trip_form
-      - active_loop: trip_form
-      - intent: inform_destination
-        entities:
-          - destination: "London"
-      - intent: inform_duration
-        entities:
-          - duration: "3 days"
-      - action: trip_form
-      - active_loop: null
-      - action: action_generate_trip_itinerary
+- rule: User provides trip details
+  steps:
+    - intent: inform_destination
+      conditions:
+      - active_loop: action_trip_form
+    - action: action_trip_form
+    - active_loop: action_trip_form
+    - slot_was_set:
+        - destination: "London"
+    - intent: inform_duration
+      conditions:
+      - active_loop: action_trip_form
+    - action: action_trip_form
+    - active_loop: null
+    - action: action_generate_trip_itinerary

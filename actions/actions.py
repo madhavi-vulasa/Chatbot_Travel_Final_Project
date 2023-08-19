@@ -7,6 +7,8 @@ from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker 
 from rasa_sdk.executor import CollectingDispatcher
 from dotenv import load_dotenv
+from rasa_sdk.forms import FormAction
+
 
 load_dotenv()
 spacy_model_name = "en_core_web_md"  # Replace with your model name if different
@@ -62,6 +64,31 @@ class ActionGenerateTripItinerary(Action):
         # Use the extracted values in the response template
         response_template = random.choice(domain["responses"]["utter_generate_trip_itinerary"])
         response = response_template.format(destination=destination, duration=duration, itinerary=generated_itinerary)
+        dispatcher.utter_message(text=response)
+
+        return []
+
+class ActionTripForm(FormAction):
+    def name(self) -> Text:
+        return "action_trip_form"
+
+    @staticmethod
+    def required_slots(tracker: Tracker) -> List[Text]:
+        return ["destination", "duration"]
+
+    def submit(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict]:
+        destination = tracker.get_slot("destination")
+        duration = tracker.get_slot("duration")
+
+        # Your logic to generate the trip itinerary here
+
+        response_template = random.choice(domain["responses"]["utter_generate_trip_itinerary"])
+        response = response_template.format(destination=destination, duration=duration, itinerary="Generated Itinerary")
         dispatcher.utter_message(text=response)
 
         return []
